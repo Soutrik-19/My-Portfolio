@@ -1,48 +1,94 @@
-// File: src/components/Testimonials.jsx
+import React, { useState, useEffect } from 'react';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, onSnapshot, query, orderBy } from 'firebase/firestore';
 
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import data from '../data.json';
+// Your Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAn13hghDFwz7K252p28WsvWHC30fwunsg",
+  authDomain: "soutrik-portfolio.firebaseapp.com",
+  projectId: "soutrik-portfolio",
+  storageBucket: "soutrik-portfolio.firebasestorage.app",
+  messagingSenderId: "49882300539",
+  appId: "1:49882300539:web:ed773e14f8da49558222de",
+  measurementId: "G-VGWL3RT23R"
+};
 
 const Testimonials = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-  };
+  const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [firebaseError, setFirebaseError] = useState(null);
+
+  useEffect(() => {
+    try {
+      if (!firebaseConfig.apiKey) {
+        setFirebaseError("Database connection failed. Please add your Firebase config.");
+        setLoading(false);
+        return;
+      }
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      
+      const collectionPath = `testimonials/portfolio/reviews`;
+      const q = query(collection(db, collectionPath), orderBy("createdAt", "desc"));
+
+      const unsubscribe = onSnapshot(q, (snapshot) => {
+        const fetchedReviews = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setReviews(fetchedReviews);
+        setLoading(false);
+      }, (error) => {
+        console.error("Error fetching testimonials: ", error);
+        setFirebaseError("Failed to fetch testimonials. Please try again later.");
+        setLoading(false);
+      });
+
+      return () => unsubscribe();
+    } catch (e) {
+      setFirebaseError("Failed to initialize Firebase. Testimonials are not available.");
+      setLoading(false);
+      console.error("Firebase initialization failed:", e);
+    }
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="testimonials" className="py-16 px-4 text-center text-gray-500 dark:text-gray-400">
+        <p>Loading testimonials...</p>
+      </section>
+    );
+  }
+  
+  if (firebaseError) {
+    return (
+      <section id="testimonials" className="py-16 px-4 text-center text-red-600 dark:text-red-400">
+        <p>{firebaseError}</p>
+      </section>
+    );
+  }
 
   return (
-    // Section container with responsive padding, margin, and background color.
-    <section id="testimonials" data-aos="fade-up" className="container mx-auto px-4 py-16 bg-gray-100 rounded-lg shadow-inner">
-      {/* Centered heading with a bold font and ample margin at the bottom. */}
-      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">What People Say</h2>
-      
-      {/* Slider container with a centered, responsive width. */}
-      <div className="mx-auto w-full max-w-4xl">
-        <Slider {...settings}>
-          {data.testimonials.map((testimonial) => (
-            // Individual testimonial card with a clean, centered design.
-            <div key={testimonial.id} className="px-2 md:px-4">
-              <div className="bg-white p-8 rounded-lg shadow-lg text-center flex flex-col justify-center h-full">
-                {/* Blockquote with large, italicized text. */}
-                <blockquote className="text-xl md:text-2xl font-light italic mb-4 text-gray-700 leading-relaxed">
-                  "{testimonial.quote}"
-                </blockquote>
-                {/* Author's name styled with a bold font and muted color. */}
-                <p className="text-lg font-semibold text-gray-500 mt-4">- {testimonial.author}</p>
+    <section id="testimonials" className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">What People Say</h2>
+        {reviews.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {reviews.map((review) => (
+              <div key={review.id} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                <p className="text-lg italic text-gray-700 dark:text-gray-300 mb-4">"{review.reviewText}"</p>
+                <p className="text-sm font-semibold text-gray-900 dark:text-white">- {review.name}</p>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-gray-500 dark:text-gray-400">Be the first to leave a review!</p>
+        )}
       </div>
     </section>
   );
 };
 
 export default Testimonials;
+

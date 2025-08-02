@@ -6,6 +6,7 @@ import Projects from './components/Projects';
 import Blog from './components/Blog';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
+import ReviewForm from './components/ReviewForm';
 import Footer from './components/Footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -28,6 +29,8 @@ function App() {
       <Blog />
       <Testimonials />
       <Contact />
+      <ReviewForm />
+      {/* Ensure the Footer is always at the bottom */}
       <Footer />
     </div>
   );
