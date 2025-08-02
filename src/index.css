@@ -1,7 +1,3 @@
-/* Add these two lines at the top of your index.css file */
-@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css");
-
 /*
  * This file contains all the CSS for your portfolio,
  * styled to match the demo site you provided.
@@ -206,7 +202,7 @@ section h2 {
 }
 
 .social-links a:hover {
-  color: #a7ffeb; /* Changes color on hover */
+  color: #a7ffeb;
 }
 
 /* ================== Footer Styling ================== */
@@ -220,4 +216,81 @@ footer {
 footer p {
   font-size: 0.9rem;
   margin: 0;
+}
+
+
+/*
+ * This file contains global CSS styles for the entire application.
+ * It's structured to be both a solid foundation and easily extendable.
+ */
+
+/*
+ * Base styles and global resets
+ * We'll use this to ensure consistent styling across all browsers.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Use a dark background and a sans-serif font for the entire body.
+ */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0d1117; /* A dark background color */
+  color: #c9d1d9; /* Light text color for contrast */
+}
+
+/*
+ * === R E S P O N S I V E   S T Y L E S ===
+ * This section uses a media query to apply styles specifically for screens
+ * that are 768px wide or smaller (typical for tablets and mobile devices).
+ */
+@media only screen and (max-width: 768px) {
+  /*
+   * Adjust the font size for the largest titles to ensure they are
+   * readable and don't overwhelm the small screen.
+   */
+  h1 {
+    font-size: 2.5rem; /* A more appropriate size for mobile */
+  }
+
+  /*
+   * You can add a rule here to adjust other headings if needed.
+   * For example: h2, h3 { font-size: ... }
+   */
+
+  /*
+   * Increase padding on the main container to give the content some breathing room
+   * and prevent it from touching the edges of the screen.
+   */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /*
+   * For any sections you have with a grid or flexbox layout, you can
+   * force them to stack vertically on mobile.
+   *
+   * IMPORTANT: You may need to replace '.responsive-grid' with the actual
+   * class name you used for your layout container.
+   */
+  .responsive-grid {
+    flex-direction: column;
+    gap: 1.5rem; /* Add some space between items when stacked */
+  }
+
+  /*
+   * Add a little extra margin to the bottom of all sections to
+   * separate them visually on mobile.
+   */
+  section {
+    margin-bottom: 2rem;
+  }
 }
