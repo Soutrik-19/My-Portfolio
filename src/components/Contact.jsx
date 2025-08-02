@@ -3,7 +3,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const Contact = () => {
   return (
@@ -23,7 +23,7 @@ const Contact = () => {
         
         {/* Email Icon with responsive size and hover effect. */}
         <a 
-          href="mailto:youremail@example.com" 
+          href="mailto:soutrik.19@gmail.com" 
           aria-label="Email Me" 
           className="text-3xl md:text-4xl text-blue-400 hover:text-blue-300 transition-colors duration-300"
         >
@@ -32,7 +32,7 @@ const Contact = () => {
         
         {/* LinkedIn Icon */}
         <a 
-          href="https://linkedin.com/in/yourprofile" 
+          href="https://www.linkedin.com/in/soutrik-ghosh-029373221/" 
           aria-label="LinkedIn"
           className="text-3xl md:text-4xl text-blue-400 hover:text-blue-300 transition-colors duration-300"
         >
@@ -41,11 +41,19 @@ const Contact = () => {
         
         {/* Twitter Icon */}
         <a 
-          href="https://twitter.com/yourhandle" 
+          href="https://x.com/Soutrik_19" 
           aria-label="Twitter"
           className="text-3xl md:text-4xl text-blue-400 hover:text-blue-300 transition-colors duration-300"
         >
           <FontAwesomeIcon icon={faTwitter} />
+        </a>
+        {/* Instagram Icon */}
+        <a 
+          href="https://www.instagram.com/soutrik.19/" 
+          aria-label="Instagram"
+          className="text-3xl md:text-4xl text-blue-400 hover:text-blue-300 transition-colors duration-300"
+        >
+          <FontAwesomeIcon icon={faInstagram} />
         </a>
       </div>
     </section>

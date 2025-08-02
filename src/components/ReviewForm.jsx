@@ -96,41 +96,52 @@ const ReviewForm = () => {
     <section id="review-form" className="py-16 px-4">
       <div className="max-w-xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-6">Leave a Review</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Your Name</label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-50 dark:bg-gray-700 dark:text-white focus:border-blue-500 focus:ring-blue-500"
-              placeholder="Soutrik Ghosh"
-              disabled={isSubmitting || firebaseError}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="reviewText" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Your Review</label>
-            <textarea
-              id="reviewText"
-              rows="4"
-              value={reviewText}
-              onChange={(e) => setReviewText(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-50 dark:bg-gray-700 dark:text-white focus:border-blue-500 focus:ring-blue-500"
-              placeholder="This guy is awesome..."
-              disabled={isSubmitting || firebaseError}
-              required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="w-full py-3 px-4 rounded-md text-white font-semibold bg-blue-600 hover:bg-blue-700 transition-colors disabled:opacity-50"
-            disabled={isSubmitting || firebaseError}
-          >
-            {isSubmitting ? 'Submitting...' : 'Submit Review'}
-          </button>
-        </form>
+        <form onSubmit={handleSubmit} className="space-y-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+  {/* Name Field */}
+  <div className="flex flex-col gap-2">
+    <label htmlFor="name" className="text-sm font-medium text-gray-700 dark:text-gray-300">
+      Your Name
+    </label> <br/>
+    <input
+      type="text"
+      id="name"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      className="w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-gray-50 dark:bg-gray-700 dark:text-white focus:border-blue-500 focus:ring-blue-500"
+      placeholder="Soutrik Ghosh"
+      disabled={isSubmitting || firebaseError}
+      required
+    />
+  </div>
+
+  {/* Review Field */}
+  <div className="flex flex-col gap-2">
+    <label htmlFor="reviewText" className="text-sm font-medium text-gray-700 dark:text-gray-300">
+      Your Review
+    </label> <br/>
+    <textarea
+      id="reviewText"
+      rows="4"
+      value={reviewText}
+      onChange={(e) => setReviewText(e.target.value)}
+      className="w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-gray-50 dark:bg-gray-700 dark:text-white focus:border-blue-500 focus:ring-blue-500"
+      placeholder="This guy is awesome..."
+      disabled={isSubmitting || firebaseError}
+      required
+    ></textarea>
+  </div>
+
+  {/* Submit Button */}
+  <button
+    type="submit"
+    className="w-full py-3 px-4 rounded-md text-white font-semibold bg-blue-600 hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50"
+    disabled={isSubmitting || firebaseError}
+  >
+    {isSubmitting ? 'Submitting...' : 'Submit Review'}
+  </button>
+</form>
+
+
         {message && (
           <p className={`mt-4 text-center text-sm ${message.includes('Thank you') ? 'text-green-600' : 'text-red-600'}`}>{message}</p>
         )}

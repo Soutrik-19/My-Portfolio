@@ -1,12 +1,25 @@
-// File: src/components/Projects.jsx
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import data from '../data.json';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Projects = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  if (!data || !data.projects || !Array.isArray(data.projects) || data.projects.length === 0) {
+    return (
+      <section id="projects" className="projects-container">
+        <h2 className="projects-title">My Scripts</h2>
+        <p className="no-scripts">No scripts found. Please check your data.json file.</p>
+      </section>
+    );
+  }
+
   const settings = {
     dots: true,
     infinite: true,
@@ -26,26 +39,51 @@ const Projects = () => {
   };
 
   return (
-    // Section container with padding and margin, ensuring it's centered
-    <section id="projects" data-aos="fade-up" className="container mx-auto px-4 py-16">
-      {/* Centered heading with a bold font and margin at the bottom */}
-      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">My Projects</h2>
-      
-      {/* Slider container with responsive margins */}
-      <div className="mx-auto w-full max-w-4xl">
+    <section id="projects" data-aos="fade-up" className="projects-container">
+      <h2 className="projects-title">My Scripts</h2>
+
+      <div className="slider-wrapper">
         <Slider {...settings}>
           {data.projects.map((project) => (
-            // Individual project card with a clean, modern design
-            <div className="p-4" key={project.id}>
-              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 h-full flex flex-col justify-between">
-                <h3 className="text-2xl font-bold mb-2 text-gray-900">{project.title}</h3>
-                <p className="text-gray-600 flex-grow mb-4">{project.description}</p>
-                <a 
-                  href={project.link} 
-                  className="inline-block bg-blue-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-600 transition-colors duration-300 text-center"
-                >
-                  Read More
-                </a>
+            <div className="slide" key={project.id}>
+              <div className="project-card">
+                <div>
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                </div>
+
+                <div className="project-buttons">
+                  {project.pdfLink?.trim() && (
+                    <a
+                      href={project.pdfLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn blue"
+                    >
+                      View Script
+                    </a>
+                  )}
+                  {project.youtubeLink?.trim() && (
+                    <a
+                      href={project.youtubeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn red"
+                    >
+                      Watch Video
+                    </a>
+                  )}
+                  {project.wordLink?.trim() && (
+                    <a
+                      href={project.wordLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn green"
+                    >
+                      Download (DOCX)
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}

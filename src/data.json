@@ -2,47 +2,40 @@
   "projects": [
     {
       "id": 1,
-      "title": "Project Title 1",
-      "description": "A brief description of the project and your role in it.",
-      "link": "#"
+      "title": "I Tested Every Youtuber Tech Product",
+      "description": "This reviews the very famous tech products from YouTubers and gives an honest opinion on their performance.",
+      "pdfLink": "https://drive.google.com/file/d/1VYoXH0syf31XVS3MT9jd2n4F4H6jqRvl/view?usp=drivesdk",
+      "youtubeLink": "https://youtu.be/krNZTNF1bJk?si=mDv9_XnUGuTKBBln"
     },
     {
       "id": 2,
-      "title": "Project Title 2",
-      "description": "A brief description of the project and your role in it.",
-      "link": "#"
+      "title": "Cheap vs Expensive Smart Glasses",
+      "description": "Review of Newly Launched Smart Glasses by Ray-Ban and Meta.",
+      "pdfLink": "https://drive.google.com/file/d/1HsnzGbBruFNq6x3THKJ3YOZMYEfu294f/view?usp=drivesdk",
+      "youtubeLink": "https://youtu.be/krNZTNF1bJk?si=FIMljMJy7PBMSSkd"
+    }
+  ],
+  "blog": [
+    {
+      "id": 1,
+      "title": "Coming Soon",
+      "description": "Coming Soon",
+      "date": "2024-08-03",
+      "link": "https://your-website.com/blog-post-1"
+    },
+    {
+      "id": 2,
+      "title": "Coming Soon",
+      "description": "Coming Soon",
+      "date": "2024-07-20",
+      "link": "https://your-website.com/blog-post-2"
     },
     {
       "id": 3,
-      "title": "Project Title 3",
-      "description": "A brief description of the project and your role in it.",
-      "link": "#"
-    }
-  ],
-  "blogPosts": [
-    {
-      "id": 1,
-      "title": "Article Title",
-      "summary": "A short summary of the article.",
-      "link": "#"
-    },
-    {
-      "id": 2,
-      "title": "Video Title",
-      "summary": "A short summary of the video content.",
-      "link": "#"
-    }
-  ],
-  "testimonials": [
-    {
-      "id": 1,
-      "quote": "Soutrik's writing is clear, insightful, and always delivers on time. A true professional.",
-      "author": "- Client Name"
-    },
-    {
-      "id": 2,
-      "quote": "I highly recommend Soutrik for any technical writing project. He has a unique ability to simplify complex topics.",
-      "author": "- Another Client"
+      "title": "Coming Soon",
+      "description": "Coming Soon",
+      "date": "2024-06-15",
+      "link": "https://your-website.com/blog-post-3"
     }
   ]
 }
