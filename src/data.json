@@ -1,0 +1,48 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Project Title 1",
+      "description": "A brief description of the project and your role in it.",
+      "link": "#"
+    },
+    {
+      "id": 2,
+      "title": "Project Title 2",
+      "description": "A brief description of the project and your role in it.",
+      "link": "#"
+    },
+    {
+      "id": 3,
+      "title": "Project Title 3",
+      "description": "A brief description of the project and your role in it.",
+      "link": "#"
+    }
+  ],
+  "blogPosts": [
+    {
+      "id": 1,
+      "title": "Article Title",
+      "summary": "A short summary of the article.",
+      "link": "#"
+    },
+    {
+      "id": 2,
+      "title": "Video Title",
+      "summary": "A short summary of the video content.",
+      "link": "#"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "quote": "Soutrik's writing is clear, insightful, and always delivers on time. A true professional.",
+      "author": "- Client Name"
+    },
+    {
+      "id": 2,
+      "quote": "I highly recommend Soutrik for any technical writing project. He has a unique ability to simplify complex topics.",
+      "author": "- Another Client"
+    }
+  ]
+}
