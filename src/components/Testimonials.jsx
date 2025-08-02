@@ -18,16 +18,25 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" data-aos="fade-up">
-      <h2>What People Say</h2>
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+    // Section container with responsive padding, margin, and background color.
+    <section id="testimonials" data-aos="fade-up" className="container mx-auto px-4 py-16 bg-gray-100 rounded-lg shadow-inner">
+      {/* Centered heading with a bold font and ample margin at the bottom. */}
+      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">What People Say</h2>
+      
+      {/* Slider container with a centered, responsive width. */}
+      <div className="mx-auto w-full max-w-4xl">
         <Slider {...settings}>
           {data.testimonials.map((testimonial) => (
-            <div key={testimonial.id}>
-              <blockquote>
-                "{testimonial.quote}"
-              </blockquote>
-              <p>{testimonial.author}</p>
+            // Individual testimonial card with a clean, centered design.
+            <div key={testimonial.id} className="px-2 md:px-4">
+              <div className="bg-white p-8 rounded-lg shadow-lg text-center flex flex-col justify-center h-full">
+                {/* Blockquote with large, italicized text. */}
+                <blockquote className="text-xl md:text-2xl font-light italic mb-4 text-gray-700 leading-relaxed">
+                  "{testimonial.quote}"
+                </blockquote>
+                {/* Author's name styled with a bold font and muted color. */}
+                <p className="text-lg font-semibold text-gray-500 mt-4">- {testimonial.author}</p>
+              </div>
             </div>
           ))}
         </Slider>
@@ -37,4 +46,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-
