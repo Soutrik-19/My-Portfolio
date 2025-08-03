@@ -12,7 +12,10 @@ const Navbar = () => {
         {/* Your name is now a clickable link to the homepage with a hover effect */}
         <a href="/" className="hover:text-blue-400 transition-colors duration-300">Soutrik Ghosh</a>
       </h1>
-      
+
+<div className="collapse navbar-collapse" id="navbarSupportedContent"/>
+
+     
       {/* Navigation Links Section */}
       {/* 'hidden md:flex' hides the links on small screens and shows them as a flex row on medium screens and up */}
       <ul className="hidden md:flex space-x-6 lg:space-x-8">
@@ -26,3 +29,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
