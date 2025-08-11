@@ -20,8 +20,8 @@ const Hero = () => {
       
       {/* Download link for your resume */}
       {/* You must place your resume file in the "public" folder. */}
-      <a href="/Soutrik-Ghosh-Resume.pdf" download className="inline-block">
-        <button className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300">Download Resume</button>
+      <a href="https://drive.google.com/file/d/1irQFc388EEDw-U8YSQq5GqfigHyekPjN/view?usp=drivesdk" target="_blank" className="inline-block">
+        <button className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300">View Resume</button>
       </a>
     </section>
   );
