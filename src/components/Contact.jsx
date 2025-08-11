@@ -3,25 +3,18 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const Contact = () => {
   return (
-    // Add responsive padding to the section for consistent spacing.
     <section id="contact" data-aos="fade-up" className="py-16 px-4 text-center">
-      
-      {/* Add responsive font sizes and spacing to the heading. */}
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Get In Touch</h2>
-      
-      {/* Adjust the paragraph font size and bottom margin. */}
       <p className="text-lg md:text-xl leading-relaxed mb-10">
         I'm always open to new opportunities...
       </p>
-      
-      {/* Use a flex container to center and space the social icons. */}
+
       <div className="flex justify-center space-x-6">
-        
-        {/* Email Icon with responsive size and hover effect. */}
+        {/* Email */}
         <a 
           href="mailto:soutrik.19@gmail.com" 
           aria-label="Email Me" 
@@ -29,8 +22,8 @@ const Contact = () => {
         >
           <FontAwesomeIcon icon={faEnvelope} />
         </a>
-        
-        {/* LinkedIn Icon */}
+
+        {/* LinkedIn */}
         <a 
           href="https://www.linkedin.com/in/soutrik-ghosh-029373221/" 
           aria-label="LinkedIn"
@@ -38,8 +31,8 @@ const Contact = () => {
         >
           <FontAwesomeIcon icon={faLinkedin} />
         </a>
-        
-        {/* Twitter Icon */}
+
+        {/* Twitter */}
         <a 
           href="https://x.com/Soutrik_19" 
           aria-label="Twitter"
@@ -47,13 +40,23 @@ const Contact = () => {
         >
           <FontAwesomeIcon icon={faTwitter} />
         </a>
-        {/* Instagram Icon */}
+
+        {/* Instagram */}
         <a 
           href="https://www.instagram.com/soutrik.19/" 
           aria-label="Instagram"
           className="text-3xl md:text-4xl text-blue-400 hover:text-blue-300 transition-colors duration-300"
         >
           <FontAwesomeIcon icon={faInstagram} />
+        </a>
+
+        {/* YouTube */}
+        <a 
+          href="https://www.youtube.com/@nerd_scope" 
+          aria-label="YouTube"
+          className="text-3xl md:text-4xl text-red-500 hover:text-red-400 transition-colors duration-300"
+        >
+          <FontAwesomeIcon icon={faYoutube} />
         </a>
       </div>
     </section>
